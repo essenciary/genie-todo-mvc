@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <title>Genie Todo MVC</title>
+    <link rel="stylesheet" href="<$ css_asset('cosmo.css') $>">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row col-md-2"><strong></strong></div>
+      <div class="row col-md-8">
+        <div class="page-header">
+          <h1>Todos</h1>
+          <a class="pull-right" type="submit" href="<$ link_to(:get_todos_new) $>" style="margin-top: -40px">New</a>
+        </div>
+        <%
+          @yield
+          include_template("app/layouts/shared/footer.flax.html")
+        %>
+      </div>
+      <div class="row col-md-2"><strong></strong></div>
+    </div>
+    <script src="<$ js_asset('jquery.js') $>"></script>
+    <script src="<$ js_asset('bootstrap.js') $>"></script>
+  </body>
+</html>

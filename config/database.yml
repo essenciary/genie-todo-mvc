@@ -1,0 +1,23 @@
+dev:
+  adapter:  PostgreSQL
+  database: todomvc_dev
+  host:     localhost
+  username: adrian
+  password: adrian
+  port:     5432
+
+prod:
+  adapter:
+  database:
+  host:
+  username:
+  password:
+  port:
+
+test:
+  adapter:
+  database:
+  host:
+  username:
+  password:
+  port:
