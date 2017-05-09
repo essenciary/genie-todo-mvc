@@ -1,5 +1,3 @@
-using Reexport
-
 export @dependencies
 
 macro dependencies()

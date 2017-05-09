@@ -76,7 +76,6 @@ using App, Faker
 function random()
   todo = Todo()
   todo.title = Faker.sentence()
-  # todo.description = Faker.text()
 
   todo
 end

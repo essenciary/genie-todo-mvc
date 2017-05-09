@@ -1,6 +1,6 @@
 module TodosController
 
-using App, JSON, Cookies, Sessions
+using App, JSON
 @dependencies
 
 # before_action = [Symbol("TodosController.say_hello")]
@@ -44,10 +44,10 @@ function update()
   todo = SearchLight.update_with!(Base.get(ntodo), @params(:todo))
 
   if Validation.validate!(todo) && SearchLight.save(todo)
-    flash("Todo updated", @params)
+    flash("Todo updated")
     link_to!!(:todo_item, id = @params(:id)) |> redirect_to
   else
-    flash("Todo has errors", @params)
+    flash("Todo has errors")
     return edit(todo)
   end
 end
@@ -70,7 +70,7 @@ function delete()
   ntodo = SearchLight.find_one(Todo, @params(:id))
   isnull(ntodo) && return error_404()
   SearchLight.delete(Base.get(ntodo))
-  flash("Todo was deleted", @params)
+  flash("Todo was deleted")
   redirect_to(link_to(:todos))
 end
 

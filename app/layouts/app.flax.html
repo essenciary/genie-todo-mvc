@@ -11,6 +11,9 @@
           <h1>Todos</h1>
           <a class="pull-right" type="submit" href="<$ link_to(:get_todos_new) $>" style="margin-top: -40px">New</a>
         </div>
+        <% if flash_has_message() %>
+          <div class="alert alert-info"><% flash() %></div>
+        <% end %>
         <%
           @yield
           include_template("app/layouts/shared/footer.flax.html")
