@@ -13,3 +13,7 @@ route("/todos/:id::Int/delete", "todos#TodosController.delete", method = POST, n
 route("/login", "user_sessions#UserSessionsController.show_login", named = :show_login)
 route("/login", "user_sessions#UserSessionsController.login", method = POST, named = :login)
 route("/logout", "user_sessions#UserSessionsController.logout", named = :logout)
+
+route("/error") do
+  error("foo!")
+end
