@@ -1,5 +1,3 @@
-#!/usr/bin/env julia --color=yes --depwarn=no --math-mode=fast
-
 """
     bootstrap_genie() :: Void
 
