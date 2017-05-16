@@ -39,9 +39,51 @@ Run the migrations to setup the app's DB tables.
 julia> Migration.all_up()
 ```
 
-Start the web server.
+Now you can generate some dummy test data to try things out.
 ```julia
-julia> AppServer.startup()
+julia> todo = Todos.random()
+App.Todo
++============+=========================+
+|        key |                   value |
++============+=========================+
+|  completed |                   false |
++------------+-------------------------+
+| created_at | 2017-05-16T13:23:58.623 |
++------------+-------------------------+
+|         id |       Nullable{Int32}() |
++------------+-------------------------+
+|      title |     Assumenda incidunt. |
++------------+-------------------------+
+| updated_at | 2017-05-16T13:23:58.623 |
++------------+-------------------------+
+
+julia> SearchLight.save!(todo)
+App.Todo
++============+=========================+
+|        key |                   value |
++============+=========================+
+|  completed |                   false |
++------------+-------------------------+
+| created_at | 2017-05-16T13:23:58.623 |
++------------+-------------------------+
+|         id |     Nullable{Int32}(33) |
++------------+-------------------------+
+|      title |     Assumenda incidunt. |
++------------+-------------------------+
+| updated_at | 2017-05-16T13:24:04.578 |
++------------+-------------------------+
+```
+
+Or you can generate more test data at a time using Genie's `DatabaseSeeding` functionality.
+```julia
+julia> using DatabaseSeeding
+julia> using TodosSeeds
+julia> TodosSeeds.random() # will generate 10 random todos
+```
+
+Start the web server.
+```
+$> bin/server
 ```
 
 Access the app on `http://localhost:8000`
