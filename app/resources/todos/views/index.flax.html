@@ -1,5 +1,8 @@
 <div class="row">
   <% output_flash(@params) %>
+  <%
+    "Generated at $(Dates.now())"
+  %>
   <form>
     <ul class="list-group">
       <%

@@ -5,7 +5,9 @@ using App, JSON
 
 # before_action = [Symbol("TodosController.say_hello")]
 
+
 function index()
+  with_cache(@cache_key, 600) do
   todos = SearchLight.find(Todo, SQLQuery(scopes = [:active], order = "created_at DESC"))
 
   # cookie_val = Cookies.get(request(@params()), :foo)
@@ -21,6 +23,7 @@ function index()
   has_requested(:json) ?
     respond_with_json(:todos, :index, todos = todos) :
     respond_with_html(:todos, :index, todos = todos)
+  end
 end
 
 function show()
