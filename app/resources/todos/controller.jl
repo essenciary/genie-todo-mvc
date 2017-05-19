@@ -7,7 +7,7 @@ using App, JSON
 
 
 function index()
-  with_cache(@cache_key, 600) do
+  with_cache(@cache_key, 600, condition = false) do
   todos = SearchLight.find(Todo, SQLQuery(scopes = [:active], order = "created_at DESC"))
 
   # cookie_val = Cookies.get(request(@params()), :foo)
